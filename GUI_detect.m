@@ -579,7 +579,7 @@ function fun_load_trace_file(filename, ~, currentsegment)
                     case 8 % ABF v2.0
                         
                         % this will open ABF v2 files where channel 1 is
-                        % current in units of nA
+                        % current in units of pA
                         
                         segment_size_in_sec = str2double(get(handles.edit_segment_size_in_sec,'String')); % how big each segment is in seconds
                         
@@ -609,7 +609,7 @@ function fun_load_trace_file(filename, ~, currentsegment)
                         % be careful here
                         handles.timestep = si*10^(-6); % convert to sec
                         
-                        handles.trace = transpose(handles.trace); % this data is already in nA, and switch to correct form
+                        handles.trace = transpose(handles.trace/1000); % convert to nA, and switch to correct form
                         handles.time_vector = handles.timestep:handles.timestep:handles.timestep*length(handles.trace); % generate time vector
                         
                         numpoints_in_segment = round(segment_size_in_sec/(handles.timestep)); % number of points in a segment
