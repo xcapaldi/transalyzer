@@ -792,7 +792,7 @@ function fun_plot_scatter(handles,location)
         bins = str2num(get(handles.edit_2_numbins,'String'));
         pp3 = scatterhist(dwelldata,amplitude,[bins bins]);
     else % otherwise use normal scatter plot
-        pp3 = scatter(dwelldata,amplitude,'or');
+        pp3 = scatter(dwelldata,amplitude,'.r');
     end
     if get(handles.check_dwell_X_log,'Value') % should we use log scale?
         set( gca                       , ...
@@ -3077,7 +3077,7 @@ function fun_plot_scatter_integral(handles,location)
         otherwise
     end
 
-    pp3 = scatter(dwelldata,integrals,'or'); % plot it
+    pp3 = scatter(dwelldata,integrals,'.r'); % plot it
 
     hXLabel = xlabel('Time (ms)');
     hYLabel = ylabel('Integral (nA*ms)');
